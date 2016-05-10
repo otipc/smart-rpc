@@ -5,5 +5,5 @@ package co.otipc.smart;
  */
 public class Constants {
 
-  
+
 }
