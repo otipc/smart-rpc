@@ -5,5 +5,5 @@ package co.otipc.smart;
  */
 public class Constants {
 
-
+public static int max=0;
 }
