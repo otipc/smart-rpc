@@ -4,6 +4,7 @@ public class RpcRequst {
 	private String requestId;
 	private String className;
 	private String methodName;
+	private String version;
 	private Class<?>[] parameterTypes;
 	private Object[] parameters;
 	public String getRequestId() {
@@ -20,6 +21,12 @@ public class RpcRequst {
 	}
 	public String getMethodName() {
 		return methodName;
+	}
+	public String getVersion() {
+		return version;
+	}
+	public void setVersion(String version) {
+		this.version = version;
 	}
 	public void setMethodName(String methodName) {
 		this.methodName = methodName;

@@ -2,14 +2,14 @@ package rpc;
 
 import java.util.concurrent.ConcurrentHashMap;
 
-class RpcProvider {
+public class RpcServer   {
 	protected ConcurrentHashMap<String, RpcServiceBean> exeCache = new ConcurrentHashMap<String, RpcServiceBean>();
 
-	public void regester(Class<?> clazz, Object obj) {
-		regester(clazz, obj, null);
+	public void export(Class<?> clazz, Object obj) {
+		export(clazz, obj, null);
 	}
 
-	public void regester(Class<?> clazz, Object obj, String version) {
+	public void export(Class<?> clazz, Object obj, String version) {
 
 		try {
 			obj.getClass().asSubclass(clazz);
@@ -35,5 +35,18 @@ class RpcProvider {
 			return service + "_" + version;
 		}
 		return service;
+	}
+	public Object findService(String clazzName){
+		return findService(clazzName,null);
+	}
+public Object findService(String clazzName,String version){
+	
+	if (version == null) {
+		version = Constants.DEFAULT_VERSION;
+	}
+	String exekey = this.genExeKey(clazzName, version);
+	Object service = exeCache.get(exekey);
+	return service;
+		
 	}
 }
