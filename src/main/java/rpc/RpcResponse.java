@@ -1,6 +1,9 @@
 package rpc;
 
-public class RpcResponse {
+import java.io.Serializable;
+
+public class RpcResponse implements Serializable {
+	private static final long serialVersionUID = -8748551394431909890L;
 	private String requestId;
     private Throwable error;
     private Object result;

@@ -3,6 +3,7 @@ package rpc;
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
 import java.lang.reflect.Proxy;
+import java.util.UUID;
 
 public class RpcProxy {
 	private RpcConnector connector;
@@ -18,11 +19,11 @@ public RpcConnector getConnector() {
 @SuppressWarnings("unchecked")
 public  <T> T getProxy(final Class<T> clazz) {
 		
-		InvocationHandler handler = new InvocationHandler() {
-			
+		InvocationHandler handler = new InvocationHandler() {			
 			@Override
 			public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
-				RpcRequst requst = new RpcRequst();
+				RpcRequest requst = new RpcRequest();
+				requst.setRequestId(UUID.randomUUID().toString());
 				requst.setClassName(clazz.getName());
 				requst.setMethodName(method.getName());
 				requst.setParameterTypes(method.getParameterTypes());
