@@ -3,6 +3,7 @@ package rpc;
 import java.io.IOException;
 import java.util.concurrent.ConcurrentHashMap;
 
+import rpc.netty.NettyRpcAcceptor;
 import rpc.nio.NioRpcAcceptor;
 
 public class RpcServer {
@@ -11,7 +12,8 @@ public class RpcServer {
 	private RpcAcceptor acceptor;
 	public RpcServer(){}
 	public RpcServer(String host,int port){
-		acceptor = new NioRpcAcceptor();
+//		acceptor = new NioRpcAcceptor();
+		acceptor = new NettyRpcAcceptor();
 		acceptor.setHost(host);
 		acceptor.setport(port);		
 		processor = new RpcProcessor();

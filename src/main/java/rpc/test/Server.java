@@ -9,7 +9,7 @@ public class Server {
 		RpcServer server = new RpcServer("127.0.0.1",1234);
 		HelloServiceImpl impl = new HelloServiceImpl();
 		server.export(HelloService.class, impl);
-
+		
 	}
 
 }
