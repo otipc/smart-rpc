@@ -4,7 +4,7 @@ public class NioProcessorPool {
 	 private final NioProcessor[] pool ;
 	 
 	 public NioProcessorPool (NioHandler handler){
-		int size= Runtime.getRuntime().availableProcessors();
+		int size= Runtime.getRuntime().availableProcessors()*2;
 		pool = new NioProcessor[size];
 		for (int i = 0; i < size; i++) {
 			pool[i] = new NioProcessor(handler,i+1);
