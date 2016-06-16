@@ -78,11 +78,11 @@ public class NioConnector {
 								sc.finishConnect();
 								
 							}
-						}
-						LOG.debug("finish Connect");
-						selector.close();
-						latch.countDown();
+						}						
 					}
+					LOG.debug("finish Connect");
+					selector.close();
+					latch.countDown();
 					
 				} catch (IOException e) {
 					e.printStackTrace();
