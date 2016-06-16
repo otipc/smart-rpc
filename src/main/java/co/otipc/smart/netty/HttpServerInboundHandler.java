@@ -22,8 +22,8 @@ public class HttpServerInboundHandler extends ChannelInboundHandlerAdapter {
     if (msg instanceof HttpRequest) {
       request = (HttpRequest) msg;
 
-      String uri = request.uri();
-      System.out.println("Uri:" + uri);
+//      String uri = request.uri();
+//      System.out.println("Uri:" + uri);
     }
     if (msg instanceof HttpContent) {
       HttpContent content = (HttpContent) msg;

@@ -17,7 +17,7 @@ import java.net.URI;
 
 public class HttpClient {
 
-  private static Log log = LogFactory.getLog(HttpServer.class);
+ // private static Log log = LogFactory.getLog(HttpClient.class);
 
   public void connect(String host, int port) throws Exception {
 
@@ -40,9 +40,9 @@ public class HttpClient {
       // Start the client.
       ChannelFuture f = b.connect(host, port).sync();
 
-      log.info("client connect !");
+  //    log.info("client connect !");
 
-      URI uri = new URI("http://127.0.0.1:8844");
+      URI uri = new URI("http://127.0.0.1:1234");
       String msg = "Are you ok?";
       DefaultFullHttpRequest request =
         new DefaultFullHttpRequest(HttpVersion.HTTP_1_1, HttpMethod.GET, uri.toASCIIString(),
@@ -57,10 +57,10 @@ public class HttpClient {
       f.channel().flush();
       f.channel().closeFuture().sync();
 
-      log.info("client send end !");
+   //   log.info("client send end !");
     } finally {
       workerGroup.shutdownGracefully();
-      log.info("client send finally !");
+ //     log.info("client send finally !");
 
     }
 
@@ -68,6 +68,6 @@ public class HttpClient {
 
   public static void main(String[] args) throws Exception {
     HttpClient client = new HttpClient();
-    client.connect("127.0.0.1", 8844);
+    client.connect("127.0.0.1", 1234);
   }
 }
